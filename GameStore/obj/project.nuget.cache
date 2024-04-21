@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kwtxF+4P3/DTD17wE/k0VPFf4ee+ESeETU9VCoZaiI80qXz5QRWfBk53g0z+rIoODxhC1rbB9vTIQ2z62bs98w==",
+  "dgSpecHash": "Lodr5C4ilBVsyS16W/X7RJKu6pBJJKrrD3aCqZuSeRKjb9N+l8oMzJLg/mtBrIyiAC/q09xz37lREB07c9on+Q==",
   "success": true,
-  "projectFilePath": "d:\\WebApp_ASPNet\\GameStore\\GameStore.csproj",
+  "projectFilePath": "D:\\WebApp_ASPNet\\GameStore\\GameStore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
