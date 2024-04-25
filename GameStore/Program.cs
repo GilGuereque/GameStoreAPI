@@ -1,3 +1,4 @@
+// Entry point file for the GameStore API
 using GameStore.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);

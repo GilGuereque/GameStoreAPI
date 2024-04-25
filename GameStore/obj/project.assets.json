@@ -104,19 +104,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gguer\\.nuget\\packages\\": {}
+    "C:\\Users\\prakt\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\WebApp_ASPNet\\GameStore\\GameStore.csproj",
+      "projectUniqueName": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore\\GameStore.csproj",
       "projectName": "GameStore",
-      "projectPath": "D:\\WebApp_ASPNet\\GameStore\\GameStore.csproj",
-      "packagesPath": "C:\\Users\\gguer\\.nuget\\packages\\",
-      "outputPath": "D:\\WebApp_ASPNet\\GameStore\\obj\\",
+      "projectPath": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore\\GameStore.csproj",
+      "packagesPath": "C:\\Users\\prakt\\.nuget\\packages\\",
+      "outputPath": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\gguer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\prakt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -124,6 +129,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -171,7 +177,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
