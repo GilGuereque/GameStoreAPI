@@ -8,14 +8,14 @@ POST http://localhost:5236/games
 Content-Type: application/json
 
 {
-    "name": "MineCraft",
-    "genreId": 3,
+    "name": "Final Fantasy XIV",
+    "genreId": 2,
     "price": 19.99,
-    "releaseDate": "2011-11-18"
+    "releaseDate": "2010-09-30"
 }
 
 ###
-PUT http://localhost:5236/games/2
+PUT http://localhost:5236/games/4
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:5236/games/4
+DELETE http://localhost:5236/games/2
