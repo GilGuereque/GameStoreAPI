@@ -6,6 +6,4 @@ public class Genre
 
     public required string? Name { get; set; }
 
-    public int GenreId { get; set; }
-    
 }
