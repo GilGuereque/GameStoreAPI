@@ -1,4 +1,7 @@
-﻿using GameStore.Dtos;
+﻿using GameStore.Data;
+using GameStore.Dtos;
+using GameStore.Entities;
+using GameStore.Mapping;
 
 namespace GameStore.Endpoints;
 
@@ -63,23 +66,23 @@ public static class GamesEndpoints
         .WithName(GetGameEndpointName);
 
         // POST /games
-        group.MapPost("/", (CreateGameDto newGame) =>
+        group.MapPost("/", (CreateGameDto newGame, GameStoreContext dbContext) =>
         {
-            if (string.IsNullOrEmpty(newGame.Name))
+            if (string.IsNullOrEmpty(newGame.Name)) //may have to comment out
             {
                 return Results.BadRequest("A game name is required.");
             }
 
-            GameDto game = new(
-                games.Count + 1,
-                newGame.Name,
-                newGame.Genre,
-                newGame.Price,
-                newGame.ReleaseDate);
+            Game game = newGame.ToEntity();
+            game.Genre = dbContext.Genres.Find(newGame.GenreId);
 
-            games.Add(game);
+            dbContext.Games.Add(game);
+            dbContext.SaveChanges(); //translates to SQL to insert the new record to DB
 
-            return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, game);
+            return Results.CreatedAtRoute(
+                GetGameEndpointName,
+                new { id = game.Id },
+                game.ToDto());
         })
         .WithParameterValidation();
 

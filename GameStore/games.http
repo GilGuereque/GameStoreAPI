@@ -8,10 +8,10 @@ POST http://localhost:5236/games
 Content-Type: application/json
 
 {
-    "name": "Minecraft",
-    "genre": "Kids and Family",
-    "price": 19.99,
-    "releaseDate": "2011-11-18"
+    "name": "Final Fantasy XIV",
+    "genreId": 2,
+    "price": 59.99,
+    "releaseDate": "2010-09-30"
 }
 
 ###
