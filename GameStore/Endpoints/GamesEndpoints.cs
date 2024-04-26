@@ -2,6 +2,7 @@
 using GameStore.Dtos;
 using GameStore.Entities;
 using GameStore.Mapping;
+using Microsoft.EntityFrameworkCore;
 
 namespace GameStore.Endpoints;
 
@@ -9,59 +10,26 @@ public static class GamesEndpoints
 {
     const string GetGameEndpointName = "GetGame";
 
-    private static readonly List<GameDto> games = [
-        new (
-        1,
-        "Street Fighter II",
-        "Fighting",
-        19.99M,
-        new DateOnly(1992, 7, 15)
-    ),
-    new (
-        2,
-        "Final Fantasy XIV",
-        "Roleplaying",
-        59.99M,
-        new DateOnly(2010, 9, 30)
-    ),
-    new (
-        3,
-        "FIFA 23",
-        "Sports",
-        59.99M,
-        new DateOnly(2022, 9, 27)
-    ),
-    new (
-        4,
-        "Kingdom Hearts 2",
-        "Action-Adventure",
-        29.99M,
-        new DateOnly(2005, 12, 22)
-    ),
-    new (
-        5,
-        "Dark Souls 3",
-        "Action-Adventure RPG",
-        24.99M,
-        new DateOnly(2016, 3, 24)
-    )
-    ];
-
     public static RouteGroupBuilder MapGamesEndpoints(this WebApplication app)
     {
         var group = app.MapGroup("games")
                         .WithParameterValidation();
         
         // GET /games
-        group.MapGet("/", () => games);
+        group.MapGet("/", (GameStoreContext dbContext) => 
+            dbContext.Games
+                    .Include(game => game.Genre) //Include GenreId so we can query games
+                    .Select(game => game.ToGameSummaryDto()) //query all games
+                    .AsNoTracking()); //telling .NET we don't need to do any tracking
 
         // Create GET request to retrieve a specific game
         // GET /games/1
-        group.MapGet("/{id}", (int id) =>
+        group.MapGet("/{id}", (int id, GameStoreContext dbContext) =>
         {
-            GameDto? game = games.Find(game => game.Id == id);
+            Game? game = dbContext.Games.Find(id);
 
-            return game is null ? Results.NotFound() : Results.Ok(game);
+            return game is null ? 
+                Results.NotFound() : Results.Ok(game.ToGameDetailsDto());
         })
         .WithName(GetGameEndpointName);
 
@@ -74,7 +42,6 @@ public static class GamesEndpoints
             }
 
             Game game = newGame.ToEntity();
-            game.Genre = dbContext.Genres.Find(newGame.GenreId);
 
             dbContext.Games.Add(game);
             dbContext.SaveChanges(); //translates to SQL to insert the new record to DB
@@ -82,35 +49,36 @@ public static class GamesEndpoints
             return Results.CreatedAtRoute(
                 GetGameEndpointName,
                 new { id = game.Id },
-                game.ToDto());
+                game.ToGameDetailsDto());
         })
         .WithParameterValidation();
 
         // PUT /games
-        group.MapPut("/{id}", (int id, UpdateGameDto updatedGame) =>
+        group.MapPut("/{id}", (int id, UpdateGameDto updatedGame, GameStoreContext dbContext) =>
         {
-            var index = games.FindIndex(game => game.Id == id);
+            var existingGame = dbContext.Games.Find(id);
 
-            if (index == -1)
+            if (existingGame is null)
             {
                 return Results.NotFound();
             }
 
-            games[index] = new GameDto(
-                id,
-                updatedGame.Name,
-                updatedGame.Genre,
-                updatedGame.Price,
-                updatedGame.ReleaseDate
-            );
+            dbContext.Entry(existingGame)
+                .CurrentValues
+                .SetValues(updatedGame.ToEntity(id));
+            
+            dbContext.SaveChanges(); //make sure changes are saved back in the Db
             // return no content as we are only updating
             return Results.NoContent();
         });
 
         // DELETE /games/1
-        group.MapDelete("/{id}", (int id) =>
+        group.MapDelete("/{id}", (int id, GameStoreContext dbContext) =>
         {
-            games.RemoveAll(game => game.Id == id);
+            //This function is known as batch delete
+            dbContext.Games
+                    .Where(game => game.Id == id) //provide the where condition of what we want to delete
+                    .ExecuteDelete(); //delete the above game
 
             return Results.NoContent();
         });
