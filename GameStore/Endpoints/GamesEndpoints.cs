@@ -16,17 +16,18 @@ public static class GamesEndpoints
                         .WithParameterValidation();
         
         // GET /games
-        group.MapGet("/", (GameStoreContext dbContext) => 
-            dbContext.Games
+        group.MapGet("/", async (GameStoreContext dbContext) => 
+            await dbContext.Games
                     .Include(game => game.Genre) //Include GenreId so we can query games
                     .Select(game => game.ToGameSummaryDto()) //query all games
-                    .AsNoTracking()); //telling .NET we don't need to do any tracking
+                    .AsNoTracking()
+                    .ToListAsync()); //telling .NET we don't need to do any tracking
 
         // Create GET request to retrieve a specific game
         // GET /games/1
-        group.MapGet("/{id}", (int id, GameStoreContext dbContext) =>
+        group.MapGet("/{id}", async (int id, GameStoreContext dbContext) =>
         {
-            Game? game = dbContext.Games.Find(id);
+            Game? game = await dbContext.Games.FindAsync(id);
 
             return game is null ? 
                 Results.NotFound() : Results.Ok(game.ToGameDetailsDto());
@@ -34,7 +35,7 @@ public static class GamesEndpoints
         .WithName(GetGameEndpointName);
 
         // POST /games
-        group.MapPost("/", (CreateGameDto newGame, GameStoreContext dbContext) =>
+        group.MapPost("/", async (CreateGameDto newGame, GameStoreContext dbContext) =>
         {
             if (string.IsNullOrEmpty(newGame.Name)) //may have to comment out
             {
@@ -44,7 +45,7 @@ public static class GamesEndpoints
             Game game = newGame.ToEntity();
 
             dbContext.Games.Add(game);
-            dbContext.SaveChanges(); //translates to SQL to insert the new record to DB
+            await dbContext.SaveChangesAsync(); //translates to SQL to insert the new record to DB
 
             return Results.CreatedAtRoute(
                 GetGameEndpointName,
@@ -54,9 +55,9 @@ public static class GamesEndpoints
         .WithParameterValidation();
 
         // PUT /games
-        group.MapPut("/{id}", (int id, UpdateGameDto updatedGame, GameStoreContext dbContext) =>
+        group.MapPut("/{id}", async (int id, UpdateGameDto updatedGame, GameStoreContext dbContext) =>
         {
-            var existingGame = dbContext.Games.Find(id);
+            var existingGame = await dbContext.Games.FindAsync(id);
 
             if (existingGame is null)
             {
@@ -67,18 +68,18 @@ public static class GamesEndpoints
                 .CurrentValues
                 .SetValues(updatedGame.ToEntity(id));
             
-            dbContext.SaveChanges(); //make sure changes are saved back in the Db
+            await dbContext.SaveChangesAsync(); //make sure changes are saved back in the Db
             // return no content as we are only updating
             return Results.NoContent();
         });
 
         // DELETE /games/1
-        group.MapDelete("/{id}", (int id, GameStoreContext dbContext) =>
+        group.MapDelete("/{id}", async (int id, GameStoreContext dbContext) =>
         {
             //This function is known as batch delete
-            dbContext.Games
+            await dbContext.Games
                     .Where(game => game.Id == id) //provide the where condition of what we want to delete
-                    .ExecuteDelete(); //delete the above game
+                    .ExecuteDeleteAsync(); //delete the above game
 
             return Results.NoContent();
         });
