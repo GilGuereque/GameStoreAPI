@@ -19,7 +19,7 @@ if (!app.Environment.IsDevelopment()) //if we are not in dev, so production
 }
 
 // Set application up to use HTTPS if needed (we won't be using this)
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
