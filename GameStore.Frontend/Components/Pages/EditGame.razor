@@ -1,5 +1,34 @@
-<h3>EditGame</h3>
+@* Building an input razor component and binding it to our game with blazor syntax *@
+@page "/editgame" 
+@using Models
+
+<PageTitle> New game </PageTitle>
+<h3>New Game</h3>
+
+<EditForm Model="@game" FormName="editGame">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name:</label>
+    <InputText id="name" @bind-Value="game.Name" class="form-control"/>
+  </div>
+    <div class="mb-3">
+    <label for="genre" class="form-label">Genre:</label>
+    <InputSelect id="genre" @bind-Value="game.GenreId" class="form-select"/>
+  </div>
+    <div class="mb-3">
+    <label for="price" class="form-label">Price:</label>
+    <InputNumber id="price" @bind-Value="game.Price" class="form-control"/>
+  </div>
+    <div class="mb-3">
+    <label for="releaseDate" class="form-label">Release Date:</label>
+    <InputDate id="releaseDate" @bind-Value="game.ReleaseDate" class="form-control"/>
+  </div>
+</EditForm>
 
 @code {
-    
+
+    private GameDetails game {get; set;} = new()
+    {
+        Name = string.Empty,
+        ReleaseDate = DateOnly.FromDateTime(DateTime.UtcNow)
+    };
 }
