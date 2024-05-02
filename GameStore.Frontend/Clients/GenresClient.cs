@@ -2,29 +2,29 @@ namespace GameStore.Frontend.Models;
 
 public class GenresClient
 {
-    private readonly GenresClient[] genres =
+    private readonly Genre[] genres =
     [
         new (){
-            id = 1,
+            Id = 1,
             Name = "Fighting"
         },
         new (){
-            id = 2,
+            Id = 2,
             Name = "Roleplaying"
         },
         new (){
-            id = 3,
+            Id = 3,
             Name = "Sports"
         },
         new (){
-            id = 4,
+            Id = 4,
             Name = "Racing"
         },
         new (){
-            id = 5,
+            Id = 5,
             Name = "Kids and Family"
         }
     ];
 
-    public Genres[] GetGenres() => genres;
+    public Genre[] GetGenres() => genres;
 }
