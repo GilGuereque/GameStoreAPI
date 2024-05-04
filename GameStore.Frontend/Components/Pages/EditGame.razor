@@ -35,13 +35,15 @@ else
                 <label for="releaseDate" class="form-label">Release Date:</label>
                 <InputDate id="releaseDate" @bind-Value="game.ReleaseDate" class="form-control"/>
             </div>
-            <button type="submit" class="btn btn-primary"></button>
+            <button type="submit" class="btn btn-primary">Save</button>
             </EditForm>
         </div>
     </div>
 }
 
 @code {
+    @* This populates the game form object with all the parameters and game data below *@
+    [SupplyParameterFromForm] 
 
     private GameDetails game {get; set;} = new()
     {
@@ -49,9 +51,9 @@ else
         ReleaseDate = DateOnly.FromDateTime(DateTime.UtcNow)
     };
 
-    private GenresClient genresClient = new ();
+    private GenresClient genresClient = new();
 
-    private GamesClient gamesClient = new ();
+    private GamesClient gamesClient = new();
 
     private Genre[]? genres;
 
