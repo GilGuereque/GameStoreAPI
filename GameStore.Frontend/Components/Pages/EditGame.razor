@@ -1,5 +1,6 @@
 @* Building an input razor component and binding it to our game with blazor syntax *@
 @page "/editgame" 
+@inject NavigationManager NavigationManger
 
 <PageTitle> New game </PageTitle>
 <h3>New Game</h3>
@@ -36,6 +37,7 @@ else
                 <InputDate id="releaseDate" @bind-Value="game.ReleaseDate" class="form-control"/>
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
+            <a role="button" class="btn btn-secondary" href="/">Cancel</a>
             </EditForm>
         </div>
     </div>
@@ -65,5 +67,6 @@ else
     private void HandleSubmit()
     {
         gamesClient.AddGame(game);
+        NavigationManger.NavigateTo("/");
     }
 }
