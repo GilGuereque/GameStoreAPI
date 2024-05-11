@@ -1,4 +1,6 @@
-namespace GameStore.Frontend.Models;
+using GameStore.Frontend.Models;
+
+namespace GameStore.Frontend.Clients;
 
 public class GenresClient
 {

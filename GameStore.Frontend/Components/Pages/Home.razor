@@ -1,6 +1,8 @@
 ﻿@page "/"
+@inject GamesClient Client
 @* Styling the Games table with html & using C# code to iterate through each item
 and insert it into the table *@
+
 <PageTitle>Game Catalog</PageTitle>
 
 <div class="mt-2">
@@ -41,13 +43,11 @@ else
 }
 
 @code {
-    private GamesClient client = new();
-
     private GameSummary[]? games;
 
     protected override void OnInitialized()
     {
-        games = client.GetGames();
+        games = Client.GetGames();
     }
 
     private static string GameUrl(int id) => $"/editgame/{id}";
