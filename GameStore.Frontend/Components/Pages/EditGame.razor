@@ -96,7 +96,17 @@ else
     private void HandleSubmit()
     {
         ArgumentNullException.ThrowIfNull(game);
-        GamesClient.AddGame(game);
+
+        if (Id is null)
+        {
+            GamesClient.AddGame(game);
+        }
+        else 
+        {
+            game.Id = Id.Value;
+            GamesClient.UpdateGame(game);
+        }
+
         NavigationManager.NavigateTo("/");
     }
 }
