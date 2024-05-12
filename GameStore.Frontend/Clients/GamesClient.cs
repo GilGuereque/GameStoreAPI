@@ -68,7 +68,7 @@ public class GamesClient
         {
             Id = game.Id,
             Name = game.Name,
-            GenreId = genre.Id.ToString(),
+            GenreId = genre.Id, //.ToString(),
             Price = game.Price,
             ReleaseDate = game.ReleaseDate
         };

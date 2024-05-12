@@ -1,13 +1,15 @@
 @* Building an input razor component and binding it to our game with blazor syntax *@
 @page "/editgame" 
+@page "/editgame/{id:int}"
+
 @inject NavigationManager NavigationManager
 @inject GamesClient GamesClient
 @inject GenresClient GenresClient
 
-<PageTitle> New game </PageTitle>
-<h3>New Game</h3>
+<PageTitle>@title</PageTitle>
+<h3>@title</h3>
 
-@if (genres is null)
+@if (genres is null || game is null)
 {
     <p><em>Loading...</em></p>
 }
@@ -51,16 +53,40 @@ else
 }
 
 @code {
+    [Parameter]
+    public int? Id { get; set; }
+
     @* This populates the game form object with all the parameters and game data below *@
     [SupplyParameterFromForm] 
-
-    private GameDetails game {get; set;} = new()
-    {
-        Name = string.Empty,
-        ReleaseDate = DateOnly.FromDateTime(DateTime.UtcNow)
-    };
+    private GameDetails game {get; set;} 
 
     private Genre[]? genres;
+
+    private string title = string.Empty;
+
+    protected override void OnParametersSet()
+    {
+        if (game is not null)
+        {
+            return;
+        }
+
+        if (Id is not null)
+        {
+            game = GamesClient.GetGame(Id.Value);
+            title = $"Edit Game - {game.Name}";
+        }
+        else 
+        {
+            game = new()
+            {
+                Name = string.Empty,
+                ReleaseDate = DateOnly.FromDateTime(DateTime.UtcNow)
+            };
+
+            title = "New Game";
+        }
+    }
 
     protected override void OnInitialized()
     {
@@ -69,6 +95,7 @@ else
 
     private void HandleSubmit()
     {
+        ArgumentNullException.ThrowIfNull(game);
         GamesClient.AddGame(game);
         NavigationManager.NavigateTo("/");
     }
