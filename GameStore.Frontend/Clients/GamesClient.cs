@@ -2,7 +2,7 @@ using GameStore.Frontend.Models;
 
 namespace GameStore.Frontend.Clients;
 
-public class GamesClient
+public class GamesClient(HttpClient httpClient)
 {
     // Changed GameSummary to a List as it is dynamic changing array instead
     private readonly List<GameSummary> games = new List<GameSummary>
@@ -30,7 +30,7 @@ public class GamesClient
         }
     };
 
-    private readonly Genre[] genres = new GenresClient().GetGenres();
+    private readonly Genre[] genres = new GenresClient(httpClient).GetGenres();
 
     public GameSummary[] GetGames() => [.. games];
 
