@@ -1,6 +1,7 @@
 @* Building an input razor component and binding it to our game with blazor syntax *@
 @page "/editgame" 
 @page "/editgame/{id:int}"
+@rendermode InteractiveServer
 
 @inject NavigationManager NavigationManager
 @inject GamesClient GamesClient

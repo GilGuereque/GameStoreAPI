@@ -5,7 +5,8 @@ using GameStore.Frontend.Clients;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container. (using dependency injection)
-builder.Services.AddRazorComponents();
+builder.Services.AddRazorComponents()
+                .AddInteractiveServerComponents();
 builder.Services.AddSingleton<GamesClient>();
 builder.Services.AddSingleton<GenresClient>();
 
@@ -28,7 +29,8 @@ app.UseStaticFiles();
 app.UseAntiforgery();
 
 // Configure middleware to be able to discover all the Razor components we created for our app
-app.MapRazorComponents<App>();
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
 
 // Lastly invoke Run to start our application and enable it to start receiving requests
 app.Run();
