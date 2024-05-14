@@ -14,9 +14,9 @@ public static class GamesEndpoints
     {
         var group = app.MapGroup("games")
                         .WithParameterValidation();
-        
+
         // GET /games
-        group.MapGet("/", async (GameStoreContext dbContext) => 
+        group.MapGet("/", async (GameStoreContext dbContext) =>
             await dbContext.Games
                     .Include(game => game.Genre) //Include GenreId so we can query games
                     .Select(game => game.ToGameSummaryDto()) //query all games
@@ -29,7 +29,7 @@ public static class GamesEndpoints
         {
             Game? game = await dbContext.Games.FindAsync(id);
 
-            return game is null ? 
+            return game is null ?
                 Results.NotFound() : Results.Ok(game.ToGameDetailsDto());
         })
         .WithName(GetGameEndpointName);
@@ -67,7 +67,7 @@ public static class GamesEndpoints
             dbContext.Entry(existingGame)
                 .CurrentValues
                 .SetValues(updatedGame.ToEntity(id));
-            
+
             await dbContext.SaveChangesAsync(); //make sure changes are saved back in the Db
             // return no content as we are only updating
             return Results.NoContent();

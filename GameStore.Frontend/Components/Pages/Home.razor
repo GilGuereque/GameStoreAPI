@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject GamesClient Client
+@attribute [StreamRendering]
 @* Styling the Games table with html & using C# code to iterate through each item
 and insert it into the table *@
 
@@ -53,9 +54,9 @@ else
 @code {
     private GameSummary[]? games;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        games = Client.GetGames();
+        games = await Client.GetGamesAsync();
     }
 
     private static string GameUrl(int id) => $"/editgame/{id}";
