@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cn+TIV8F57UXpq742NVYb3yr941Az7C3mY7BBqosf9k=",
+  "Hash": "yVst+8Abv/Vg8GpXnVVT0H+HVm6hHUTMlrYtz3NtpH8=",
   "Source": "GameStore.Frontend",
   "BasePath": "_content/GameStore.Frontend",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "GameStore.Frontend\\wwwroot",
       "Source": "GameStore.Frontend",
-      "ContentRoot": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\wwwroot\\",
+      "ContentRoot": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\wwwroot\\",
       "BasePath": "_content/GameStore.Frontend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GameStore.Frontend.styles.css",
+      "Identity": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GameStore.Frontend.styles.css",
       "SourceId": "GameStore.Frontend",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/GameStore.Frontend",
       "RelativePath": "GameStore.Frontend.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GameStore.Frontend.styles.css"
+      "OriginalItemSpec": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GameStore.Frontend.styles.css"
     },
     {
-      "Identity": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GameStore.Frontend.bundle.scp.css",
+      "Identity": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GameStore.Frontend.bundle.scp.css",
       "SourceId": "GameStore.Frontend",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/GameStore.Frontend",
       "RelativePath": "GameStore.Frontend.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GameStore.Frontend.bundle.scp.css"
+      "OriginalItemSpec": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GameStore.Frontend.bundle.scp.css"
     },
     {
-      "Identity": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\wwwroot\\app.css",
+      "Identity": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\wwwroot\\app.css",
       "SourceId": "GameStore.Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\wwwroot\\",
+      "ContentRoot": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\wwwroot\\",
       "BasePath": "_content/GameStore.Frontend",
       "RelativePath": "app.css",
       "AssetKind": "All",
