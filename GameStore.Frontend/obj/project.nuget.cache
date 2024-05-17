@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zDVp5WEnBn4=",
+  "dgSpecHash": "FYCWDpz4GDc=",
   "success": true,
-  "projectFilePath": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\GameStore.Frontend.csproj",
+  "projectFilePath": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\GameStore.Frontend.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

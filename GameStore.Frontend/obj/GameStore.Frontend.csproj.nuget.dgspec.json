@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\GameStore.Frontend.csproj": {}
+    "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\GameStore.Frontend.csproj": {}
   },
   "projects": {
-    "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\GameStore.Frontend.csproj": {
+    "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\GameStore.Frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\GameStore.Frontend.csproj",
+        "projectUniqueName": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\GameStore.Frontend.csproj",
         "projectName": "GameStore.Frontend",
-        "projectPath": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\GameStore.Frontend.csproj",
+        "projectPath": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\GameStore.Frontend.csproj",
         "packagesPath": "C:\\Users\\prakt\\.nuget\\packages\\",
-        "outputPath": "D:\\Academia\\Projects\\CSharpProjects\\WebApp_AspNet\\WebApp_ASPNet\\GameStore.Frontend\\obj\\",
+        "outputPath": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
