@@ -4,5 +4,12 @@
   "success": true,
   "projectFilePath": "D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\GameStore.Frontend.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Academia\\Projects\\CSharpProjects\\GameStoreAPI\\GameStore.Frontend\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
